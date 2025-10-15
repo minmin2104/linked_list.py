@@ -38,3 +38,11 @@ class TestLinkedList(unittest.TestCase):
         self.ll.insert(4, 20)
         self.assertEqual(self.ll.size(), 5)
         self.assertEqual(self.ll.last(), 25)
+
+    def test_index_of(self):
+        self.test_insert()
+        a = self.ll.index_of(10)
+        self.assertEqual(a, 1)
+        b = self.ll.index_of(20)
+        self.assertEqual(b, 4)
+        self.assertEqual(self.ll.size(), 5)

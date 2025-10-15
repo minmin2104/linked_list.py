@@ -42,6 +42,22 @@ class SingularLinkedList:
         new_node.next = curr_node_next
         self.__size += 1
 
+    def index_of(self, value):
+        i = 0
+        found = False
+        curr_node = self.__head
+        while curr_node is not None:
+            if curr_node.value == value:
+                found = True
+                break
+            curr_node = curr_node.next
+            i += 1
+
+        if not found:
+            return -1
+
+        return i
+
     def first(self):
         return self.__head.value
 
