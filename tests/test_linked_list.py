@@ -38,14 +38,16 @@ class TestLinkedList(unittest.TestCase):
         self.ll.insert(4, 20)
         self.assertEqual(self.ll.size(), 5)
         self.assertEqual(self.ll.last(), 25)
+        self.ll.insert(0, 1)
+        self.assertEqual(self.ll.first(), 1)
 
     def test_index_of(self):
         self.test_insert()
         a = self.ll.index_of(10)
-        self.assertEqual(a, 1)
+        self.assertEqual(a, 2)
         b = self.ll.index_of(20)
-        self.assertEqual(b, 4)
-        self.assertEqual(self.ll.size(), 5)
+        self.assertEqual(b, 5)
+        self.assertEqual(self.ll.size(), 6)
 
     def test_search(self):
         self.test_insert()
@@ -56,5 +58,5 @@ class TestLinkedList(unittest.TestCase):
     def test_delete(self):
         self.test_insert()
         a = self.ll.delete(1)
-        self.assertEqual(a, 10)
-        self.assertEqual(self.ll.size(), 4)
+        self.assertEqual(a, 5)
+        self.assertEqual(self.ll.size(), 5)

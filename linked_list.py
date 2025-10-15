@@ -31,6 +31,9 @@ class SingularLinkedList:
         self.__size += 1
 
     def insert(self, index, value):
+        if index == 0:
+            self.insert_first(value)
+            return
         curr_node = self.__head
         i = 0
         while curr_node is not None and i < index - 1:
