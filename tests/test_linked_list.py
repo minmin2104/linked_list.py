@@ -17,3 +17,13 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.first(), 12)
         self.assertEqual(self.ll.last(), 5)
         self.assertEqual(self.ll.size(), 3)
+
+    def test_insert_last(self):
+        self.ll.insert_last(5)
+        self.assertEqual(self.ll.last(), 5)
+        self.ll.insert_last(8)
+        self.assertEqual(self.ll.last(), 8)
+        self.ll.insert_last(12)
+        self.assertEqual(self.ll.last(), 12)
+        self.assertEqual(self.ll.first(), 5)
+        self.assertEqual(self.ll.size(), 3)

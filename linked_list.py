@@ -11,18 +11,24 @@ class SingularLinkedList:
         self.__size = 0
 
     def insert_first(self, value):
-        if self.__head is not None:
+        if not self.is_empty():
             new_node = Node(value)
             new_node.next = self.__head
             self.__head = new_node
-            self.__size += 1
         else:
             self.__head = Node(value)
             self.__tail = self.__head
-            self.__size += 1
+        self.__size += 1
 
     def insert_last(self, value):
-        pass
+        if not self.is_empty():
+            new_node = Node(value)
+            self.__tail.next = new_node
+            self.__tail = new_node
+        else:
+            self.__tail = Node(value)
+            self.__head = self.__tail
+        self.__size += 1
 
     def insert(self, index, value):
         pass
