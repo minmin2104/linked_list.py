@@ -67,8 +67,17 @@ class SingularLinkedList:
     def search(self, value) -> bool:
         return self.index_of(value) > -1
 
-    def delete():
-        pass
+    def delete(self, index):
+        curr_node = self.__head
+        i = 0
+        while curr_node is not None and i < index - 1:
+            curr_node = curr_node.next
+            i += 1
+        node_after_index = curr_node.next.next
+        node_at_index = curr_node.next
+        curr_node.next = node_after_index
+        self.__size -= 1
+        return node_at_index.value
 
     def update():
         pass

@@ -52,3 +52,9 @@ class TestLinkedList(unittest.TestCase):
         self.assertTrue(self.ll.search(5))
         self.assertTrue(self.ll.search(15))
         self.assertFalse(self.ll.search(100))
+
+    def test_delete(self):
+        self.test_insert()
+        a = self.ll.delete(1)
+        self.assertEqual(a, 10)
+        self.assertEqual(self.ll.size(), 4)
