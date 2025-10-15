@@ -1,3 +1,6 @@
+from typing import Any
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -18,7 +21,11 @@ class SingularLinkedList:
             curr_node = curr_node.next
         return "->".join(map(lambda x: str(x), nodes))
 
-    def insert_first(self, value):
+    def insert_first(self, value: Any):
+        """
+        Insert a node at the first index with a value of `value`.
+        Making it the new head of the linked list
+        """
         if not self.is_empty():
             new_node = Node(value)
             new_node.next = self.__head
@@ -28,7 +35,11 @@ class SingularLinkedList:
             self.__tail = self.__head
         self.__size += 1
 
-    def insert_last(self, value):
+    def insert_last(self, value: Any):
+        """
+        Insert a node at the last index with a value of `value`.
+        Making it the new tail of the linked list
+        """
         if not self.is_empty():
             new_node = Node(value)
             self.__tail.next = new_node
@@ -38,7 +49,12 @@ class SingularLinkedList:
             self.__head = self.__tail
         self.__size += 1
 
-    def insert(self, index, value):
+    def insert(self, index: int, value: Any):
+        """
+        Insert node with a value of `value` at a specific index.
+        If use on an index equals to the size of the linked list,
+        it will be the new tail.
+        """
         if index == 0:
             self.insert_first(value)
             return
@@ -56,7 +72,11 @@ class SingularLinkedList:
         new_node.next = curr_node_next
         self.__size += 1
 
-    def index_of(self, value):
+    def index_of(self, value: Any) -> int:
+        """
+        Get the index of the first encountered node
+        with the value of `value` and return the index
+        """
         i = 0
         found = False
         curr_node = self.__head
@@ -73,15 +93,29 @@ class SingularLinkedList:
         return i
 
     def first(self):
+        """
+        Get the value of the head
+        """
         return self.__head.value
 
     def last(self):
+        """
+        Get the value of the tail
+        """
         return self.__tail.value
 
-    def search(self, value) -> bool:
+    def search(self, value: Any) -> bool:
+        """
+        Return a boolean of True if
+        the node with a value of `value`
+        found within the linked list
+        """
         return self.index_of(value) > -1
 
     def delete_first(self):
+        """
+        Delete the first node in the linked list
+        """
         if self.is_empty():
             return None
 
@@ -90,7 +124,11 @@ class SingularLinkedList:
         self.__size -= 1
         return first_node.value
 
-    def delete(self, index):
+    def delete(self, index: int):
+        """
+        Delete the node at a specific index
+        in the linked list
+        """
         if self.is_empty():
             return None
 
@@ -109,7 +147,11 @@ class SingularLinkedList:
         self.__size -= 1
         return node_at_index.value
 
-    def update(self, index, value):
+    def update(self, index: int, value: Any):
+        """
+        Update the value of the node at index `index`
+        with a value of `value`
+        """
         if self.is_empty():
             return
 
@@ -121,7 +163,13 @@ class SingularLinkedList:
         curr_node.value = value
 
     def is_empty(self) -> bool:
+        """
+        Return True if the linked list is empty. False otherwise
+        """
         return self.__size == 0
 
-    def size(self):
+    def size(self) -> int:
+        """
+        Return the size of the linked list
+        """
         return self.__size
