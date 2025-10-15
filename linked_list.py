@@ -64,10 +64,10 @@ class SingularLinkedList:
     def last(self):
         return self.__tail.value
 
-    def delete():
-        pass
+    def search(self, value) -> bool:
+        return self.index_of(value) > -1
 
-    def search():
+    def delete():
         pass
 
     def update():
