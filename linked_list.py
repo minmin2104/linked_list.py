@@ -31,7 +31,16 @@ class SingularLinkedList:
         self.__size += 1
 
     def insert(self, index, value):
-        pass
+        curr_node = self.__head
+        i = 0
+        while curr_node is not None and i < index - 1:
+            curr_node = curr_node.next
+            i += 1
+        new_node = Node(value)
+        curr_node_next = curr_node.next
+        curr_node.next = new_node
+        new_node.next = curr_node_next
+        self.__size += 1
 
     def first(self):
         return self.__head.value
