@@ -109,8 +109,16 @@ class SingularLinkedList:
         self.__size -= 1
         return node_at_index.value
 
-    def update():
-        pass
+    def update(self, index, value):
+        if self.is_empty():
+            return
+
+        i = 0
+        curr_node = self.__head
+        while curr_node is not None and i < index:
+            curr_node = curr_node.next
+            i += 1
+        curr_node.value = value
 
     def is_empty(self) -> bool:
         return self.__size == 0
