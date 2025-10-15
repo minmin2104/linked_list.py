@@ -17,6 +17,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.first(), 12)
         self.assertEqual(self.ll.last(), 5)
         self.assertEqual(self.ll.size(), 3)
+        print(self.ll)
 
     def test_insert_last(self):
         self.ll.insert_last(5)
@@ -27,6 +28,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.last(), 12)
         self.assertEqual(self.ll.first(), 5)
         self.assertEqual(self.ll.size(), 3)
+        print(self.ll)
 
     def test_insert(self):
         self.ll.insert_last(5)
@@ -37,9 +39,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.size(), 4)
         self.ll.insert(4, 20)
         self.assertEqual(self.ll.size(), 5)
-        self.assertEqual(self.ll.last(), 25)
+        self.assertEqual(self.ll.last(), 20)
         self.ll.insert(0, 1)
         self.assertEqual(self.ll.first(), 1)
+        print(self.ll)
 
     def test_index_of(self):
         self.test_insert()
@@ -57,6 +60,15 @@ class TestLinkedList(unittest.TestCase):
 
     def test_delete(self):
         self.test_insert()
-        a = self.ll.delete(1)
-        self.assertEqual(a, 5)
+        first = self.ll.delete(0)
+        self.assertEqual(first, 1)
         self.assertEqual(self.ll.size(), 5)
+        print(self.ll)
+        third = self.ll.delete(3)
+        self.assertEqual(third, 25)
+        self.assertEqual(self.ll.last(), 20)
+        print(self.ll)
+        last = self.ll.delete(3)
+        self.assertEqual(last, 20)
+        self.assertEqual(self.ll.last(), 15)
+        print(self.ll)
