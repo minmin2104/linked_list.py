@@ -12,6 +12,8 @@ python -m venv .venv
 source .venv/bin/activate
 pip install git+https://github.com/minmin2104/linked_list.py.git
 ```
+## Documentation
+See [DOCS.md](./DOCS.md) for the full API reference.
 
 ## Example usage
 ```py
